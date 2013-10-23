@@ -11,18 +11,18 @@ The Resolver class is backbone of the project it allows you to resolve concrete 
 
 In this sample the resolver is created and three bindings are added, two bindings used to map interfaces to their concrete types and one to bind the "SecondObject" to iteself and manage it as a singleton.
 
-var res = new Resolver();
-res.Bind<IConfig>().To<SingleObjectConfig>();
-res.Bind<IMessageWriter>().To<Writer>();
-res.Bind<SecondObject>().ToSelf().Singleton();
+    var res = new Resolver();
+    res.Bind<IConfig>().To<SingleObjectConfig>();
+    res.Bind<IMessageWriter>().To<Writer>();
+    res.Bind<SecondObject>().ToSelf().Singleton();
 
 
 Getting composed objects is simple just call Resolve<T>().
 
-var result = res.Resolve<SecondObject>();
-result.SayHello("steve");
-var secondResult = res.Resolve<SecondObject>();
-secondResult.SayHello("Fred");
+    var result = res.Resolve<SecondObject>();
+    result.SayHello("steve");
+    var secondResult = res.Resolve<SecondObject>();
+    secondResult.SayHello("Fred");
 
 
 When running this sample code you'll see the singleton, mapping and type creation in action. 
